@@ -9,6 +9,7 @@ import com.example.entities.Compra;
 import com.example.entities.Licor;
 import com.example.services.ICompraService;
 import com.example.services.ILicorService;
+import com.example.services.IUserService;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,8 @@ public class AdminController {
     private ILicorService repoLicor;
     @Autowired
     private ICompraService repoCompra;
+    @Autowired
+    private IUserService repoUser;
 
     /*
      * Métodos REST para la sección CRUD, del administrador.
@@ -89,6 +92,14 @@ public class AdminController {
     @GetMapping("/admin/hist/listar")
     public List<CompraDTO> getCompras() {
         List<Compra> compras = repoCompra.obtenerCompras();
+
+        return convertCDTOs(compras);
+    }
+
+    @GetMapping("admin/hist/{username}")
+    public List<CompraDTO> getComprasByUsername(@PathVariable("username") String username){
+        
+        List<Compra> compras = repoCompra.obtenerComprasPorUsername(repoUser.getUserByUsername(username));
 
         return convertCDTOs(compras);
     }

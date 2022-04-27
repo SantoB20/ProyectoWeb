@@ -3,6 +3,7 @@ package com.example.services;
 import java.util.List;
 
 import com.example.entities.Compra;
+import com.example.entities.User;
 import com.example.repositories.CompraRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class CompraService implements ICompraService{
     }
 
     @Override
-    public List<Compra> obtenerComprasPorUsername(String username){
+    public List<Compra> obtenerComprasPorUsername(User username){
         return repo.findByComprador(username);
     }
 }
