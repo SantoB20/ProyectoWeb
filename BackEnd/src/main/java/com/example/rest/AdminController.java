@@ -13,14 +13,17 @@ import com.example.services.IUserService;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @RestController
+@RequestMapping("admin")
 public class AdminController {
 
     @Autowired
@@ -33,7 +36,7 @@ public class AdminController {
     /*
      * Métodos REST para la sección CRUD, del administrador.
      */
-    @GetMapping("/admin/crud/listar")
+    @GetMapping("crud/listar")
     public List<LicorDTO> getLicores() {
         List<Licor> licores = repoLicor.obtenerLicores();
 
@@ -41,29 +44,29 @@ public class AdminController {
 
     }
 
-    @GetMapping("/admin/crud/info/{id}")
+    @GetMapping("crud/info/{id}")
     public LicorDTO infoLicor(@PathVariable("id") Long id) {
         Licor licor = repoLicor.obtenerLicor(id);
 
         return convertDTO(licor);
     }
 
-    @PostMapping("/admin/crud/crear")
-    public LicorDTO crearLicor(@RequestBody Licor licor) {
-        Licor nuevo = repoLicor.crearLicor(licor);
+    @PostMapping("crud/crear")
+    public LicorDTO crearLicor(@RequestBody LicorDTO licor) {
+        Licor nuevo = repoLicor.crearLicor(convertEntity(licor));
 
         return convertDTO(nuevo);
     }
 
-    @PutMapping("/admin/crud/modificar/{id}")
-    public LicorDTO modificarLicor(@RequestBody Licor licor, @PathVariable("id") Long id) {
-        Licor nuevo = repoLicor.modificarLicor(licor, id);
+    @PutMapping("crud/modificar")
+    public LicorDTO modificarLicor(@RequestBody LicorDTO licor) {
+        Licor nuevo = repoLicor.modificarLicor(convertEntity(licor));
         return convertDTO(nuevo);
     }
 
-    @GetMapping("/admin/crud/eliminar/{id}")
-    public boolean eliminarLicor(@PathVariable("id") Long id) {
-        return repoLicor.eliminarLicor(id);    
+    @DeleteMapping("crud/eliminar/{id}")
+    public void eliminarLicor(@PathVariable("id") Long id) {
+        repoLicor.eliminarLicor(id);    
     }
 
     public LicorDTO convertDTO(Licor licor) {
@@ -86,17 +89,26 @@ public class AdminController {
         return result;
     }
 
+    public Licor convertEntity(LicorDTO licor){
+
+        ModelMapper mapper = new ModelMapper();
+
+        Licor result = mapper.map(licor,Licor.class);
+
+        return result;
+    }
+
     /*
      * Métodos REST para la sección historial de ventas, del administrador.
      */
-    @GetMapping("/admin/hist/listar")
+    @GetMapping("hist/listar")
     public List<CompraDTO> getCompras() {
         List<Compra> compras = repoCompra.obtenerCompras();
 
         return convertCDTOs(compras);
     }
 
-    @GetMapping("admin/hist/{username}")
+    @GetMapping("hist/{username}")
     public List<CompraDTO> getComprasByUsername(@PathVariable("username") String username){
         
         List<Compra> compras = repoCompra.obtenerComprasPorUsername(repoUser.getUserByUsername(username));

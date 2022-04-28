@@ -16,7 +16,7 @@ public interface ILicorService {
 
     List<Licor> obtenerPorPais(String pais);
 
-    public Licor modificarLicor(Licor newLicor, long id);
+    public Licor modificarLicor(Licor newLicor);
 
     public boolean eliminarLicor(long id);
 }

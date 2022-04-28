@@ -40,13 +40,13 @@ public class LicorService implements ILicorService{
     }
 
     @Override
-    public Licor modificarLicor(Licor newLicor, long id){
-        return repo.findById(id).map( provider -> {
+    public Licor modificarLicor(Licor newLicor){
+        return repo.findById(newLicor.getId()).map( provider -> {
             provider.setNombre(newLicor.getNombre());
             provider.setPais(newLicor.getPais());
             provider.setTipo(newLicor.getTipo());
             provider.setCantidad(newLicor.getCantidad());
-            provider.setGrados(newLicor.getCantidad());
+            provider.setGrados(newLicor.getGrados());
             provider.setPrecio(newLicor.getPrecio());
 
             return repo.save(provider);
