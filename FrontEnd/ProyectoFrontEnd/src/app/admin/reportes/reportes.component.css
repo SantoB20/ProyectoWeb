@@ -1,0 +1,13 @@
+.reportes{
+    position: absolute;
+    width: auto;
+    height: 300px;
+    top: 20%;
+    left: 25%;
+    padding: 20px;
+    background-color: rgb(88, 21, 11);
+    color: white;
+}
+.reportes h2{
+    padding: 20px;
+}

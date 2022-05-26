@@ -1,0 +1,87 @@
+.listado{
+    position: absolute;
+    width: 400px;
+    height: auto;
+    background-color:  rgb(88, 21, 11);
+    color: white;
+    padding: 20px;
+}
+
+
+.info{
+    display: none;
+    position: absolute;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    background-color: black;
+}
+
+.nombre:hover .info{
+    display: block;
+}
+
+.info div{
+    padding: 10px;
+}
+
+.super{
+    position: absolute;
+    width: auto;
+    height: auto;
+    top: 15%;
+    left: 20%;
+    padding: 20px;
+}
+
+.licor{
+    display: inline-block;
+    width: 300px;
+}
+.licor button{
+    padding: 0 10px;
+}
+
+.td_1{
+    align-items: center;
+    padding: 20px;
+}
+
+.td_2{
+    align-items: center;
+    padding: 20px 30px;
+}
+
+.nombre:hover{
+    background-color: rgb(170, 102, 13);
+}
+
+.factura{
+    position: absolute;
+    width: 300px;
+    height: auto;
+    top: 20%;
+    right: 20%;
+    background-color: rgb(88, 21, 11);
+    padding: 20px;
+    color: white;
+}
+
+.factura button{
+    position: relative;
+    left: 38%;
+    top: 90%;
+    padding: 0 10px;
+}
+
+.factura div{
+    padding: 10px;
+}
+
+.boton td{
+    padding: 0 10px;
+}
+
+.mensaje{
+    display:none;
+}

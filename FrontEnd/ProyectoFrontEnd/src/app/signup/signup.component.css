@@ -1,0 +1,43 @@
+.div-login {
+  position: absolute;
+  top: 200px;
+  left: 38%;
+  width: 25%;
+  color: white;
+  font-size: 20px;
+}
+.login {
+  position: absolute;
+  padding: 20px;
+  width: 300px;
+  height: auto;
+  background-color: rgb(88, 21, 11);
+}
+.login div {
+  padding: 10px;
+}
+.check {
+  padding: 0 10px;
+}
+.admin {
+  font-size: 17px;
+}
+.login button {
+  position: relative;
+  left: 30%;
+  font-size: 20px;
+}
+.login input{
+  width: 100%;
+  font-size: 20px;
+}
+.admin{
+  display:flex;
+  font-size: 20px;
+}
+.admin input{
+  margin-top: 2px;
+  margin-left: 20px;
+  width: 20px;
+  height: 20px;
+}

@@ -1,0 +1,46 @@
+.historial{
+    position: absolute;
+    width: auto;
+    height: auto;
+    top: 20%;
+    left: 25%;
+    padding: 20px;
+    background-color: rgb(88, 21, 11);
+    color: white;
+}
+.historial h2{
+    padding: 10px;
+}
+
+.historial h1{
+    padding: 10px;
+}
+
+.historial td div{
+    padding: 0 10px;
+}
+
+.detalles{
+    display: none;
+    position: absolute;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    background-color: black;
+}
+.detalles p{
+    padding: 0 20px;
+}
+
+.info div{
+    padding: 10px;
+}
+
+.compra:hover{
+    background-color: rgb(170, 102, 13);
+}
+
+.compra:hover .detalles{
+
+    display:block;
+}

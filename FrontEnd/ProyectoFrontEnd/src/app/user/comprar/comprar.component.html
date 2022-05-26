@@ -1,0 +1,69 @@
+<div class="super">
+  <div class="listado">
+    <table>
+      <tbody>
+        <tr class="nombre" *ngFor="let licor of service.inventario">
+          <div class="licor" *ngIf="licor.cantidad != 0">
+            <td class="td_1">
+              <button >+</button>
+            </td>
+            <td class="td_1">
+              <h3>{{ licor.nombre }}</h3>
+            </td>
+            <td class="td_2">
+              <div class="info">
+                <fieldset>
+                  <div>
+                    <p>Tipo: {{ licor.tipo }}</p>
+                  </div>
+                  <div>
+                    <p>Pais: {{ licor.pais }}</p>
+                  </div>
+                  <div>
+                    <p>Grados: {{ licor.grados }}%</p>
+                  </div>
+                  <div>
+                    <p>Precio: ${{ licor.precio }}</p>
+                  </div>
+                </fieldset>
+              </div>
+            </td>
+          </div>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="factura">
+  <fieldset>
+    <table>
+      <tbody>
+        <tr class="productos" *ngFor="let licor of productos">
+          <td>
+            <div>
+              <p>{{ licor.nombre }}</p>
+            </div>
+          </td>
+          <td>
+            <div>
+              <p>${{ licor.precio }}</p>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </fieldset>
+  <div class="boton">
+    <table>
+      <tbody>
+        <tr>
+          <td>Total: ${{ costo_total }}</td>
+          <td>
+            <button>Comprar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

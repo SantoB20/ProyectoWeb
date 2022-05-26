@@ -1,0 +1,17 @@
+<div class="div-login">
+    <form class="login">
+      <fieldset>
+        <legend>Login</legend>
+        <div>
+          <input type="text" placeholder="Nombre de usuario" #nombre required/>
+        </div>
+        <div>
+          <input type="password" placeholder="Contraseña" #password required/>
+        </div>
+        <div>
+            <input type="button" (click)="login(nombre.value,password.value)" value="Iniciar sesión"/>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  

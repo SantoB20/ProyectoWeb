@@ -1,0 +1,27 @@
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Italianno&display=swap"
+  rel="stylesheet"
+/>
+
+<nav class="navbar">
+  <div class="casa">
+    <a>SACA</a>
+  </div>
+  <div class="pages">
+    <ul>
+      <li class="section" *ngIf="service.admin" (click)="inventario()">Inventario</li>
+      <li class="section" *ngIf="service.admin" (click)="reportes()">Reportes</li>
+  
+      <li class="section" *ngIf="service.logged && !service.admin" (click)="comprar()">Comprar</li>
+      <li class="section" *ngIf="service.logged && !service.admin" (click)="historial()">Historial</li>
+      
+      <li class="login" *ngIf="!service.logged && !service.admin" (click)="login()">Login</li>
+      <li class="login" *ngIf="!service.logged && !service.admin" (click)="signup()">Registrarse</li>
+  
+      <li class="login" *ngIf="service.logged || service.admin" (click)="salir()">Salir</li>
+      <li class="login" *ngIf="service.logged">Hola: {{ service.current.username }}</li> 
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,66 @@
+<div class="historial">
+  <div *ngFor="let user of service.users">
+    <div>
+      <h2 *ngIf="user.compras.length == 0">
+        No ha realizado ninguna compra
+      </h2>
+      <fieldset *ngIf="user.compras.length !=0">
+        <h2>Compras realizadas: {{ user.compras.length }}</h2>
+        <div>
+          <div>
+            <table>
+              <tbody>
+                <tr
+                  class="compra"
+                  *ngFor="let compras of user.compras; let i = index"
+                >
+                  <div>
+                    <td>
+                      {{ i + 1 }}
+                    </td>
+                    <td>
+                      <div></div>
+                    </td>
+                    <td>
+                      <div></div>
+                    </td>
+                    <td>
+                      <div>
+                        <p>${{ compras.total }}</p>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="detalles">
+                        <fieldset>
+                          <table>
+                            <tbody>
+                              <tr *ngFor="let licor of compras.productos">
+                                <td>
+                                  <div>
+                                    <p>{{ licor.nombre }}</p>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div></div>
+                                </td>
+                                <td>
+                                  <div>
+                                    <p>${{ licor.costo }}</p>
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </fieldset>
+                      </div>
+                    </td>
+                  </div>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</div>

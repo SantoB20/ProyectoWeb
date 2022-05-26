@@ -1,0 +1,45 @@
+.navbar {
+    height: 60px;
+    background-color: rgb(88, 21, 11);
+    color: white;
+  }
+  .pages {
+    padding: 10px;
+    font-size: 20px;
+  }
+  .section {
+    float: left;
+  }
+  .pages li {
+    list-style-type: none;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    text-align: center;
+  }
+  .casa {
+    padding: 10px;
+    text-align: center;
+    width: 300px;
+    font-size: 40px;
+    float: left;
+    font-family: "Italianno", cursive;
+  }
+  .login {
+    text-align: center;
+    float: right;
+  }
+  .login-info {
+    background-color: rgb(88, 21, 11);
+    padding: 10px;
+    width: auto;
+    height: auto;
+    display: none;
+  }
+  .navbar .login:hover .login-info {
+    display: block;
+  }
+  .login-info div {
+    padding: 5px;
+    font-size: 15px;
+  }

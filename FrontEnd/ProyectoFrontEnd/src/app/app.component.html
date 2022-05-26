@@ -1,0 +1,13 @@
+<app-header></app-header>
+
+<!--Componentes de inicio-->
+<app-login *ngIf="service.ir_login"></app-login>
+<app-signup *ngIf="service.ir_signup"></app-signup>
+
+<!--Componentes del usuario-->
+<app-comprar *ngIf="service.ir_compra && service.logged" ></app-comprar>
+<app-historial *ngIf="service.ir_historial && service.logged"></app-historial>
+
+<!--Componentes del administrador-->
+<app-crud *ngIf="service.ir_crud && service.admin"></app-crud>
+<app-reportes *ngIf="service.ir_reportes && service.admin"></app-reportes>

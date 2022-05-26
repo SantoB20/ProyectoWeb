@@ -1,0 +1,35 @@
+<div class="div-login">
+  <form class="login">
+    <fieldset>
+      <legend>Sign up </legend>
+      <div>
+        <input type="text" placeholder="Nombre de usuario" #nombre required/>
+      </div>
+      <div>
+        <input type="password" placeholder="Contraseña" #password required/>
+      </div>
+      <div>
+        <input type="tel" placeholder="Celular" #cel required/>
+      </div>
+      <div>
+        <input type="mail" placeholder="Correo" #email required/>
+      </div>
+      <div class="admin">
+        <p>Administrador</p>
+        <input type="checkbox" #esAdmin/>
+      </div>
+      <div>
+        <input type="button" (click)="register(nombre.value,password.value,cel.value,email.value,esAdmin.checked)" value="Registrarse"/>
+      </div>
+    </fieldset>
+    <div>
+      <p *ngIf="message && show">
+        Usuario creado exitosamente
+      </p>
+      <p *ngIf="!message && show">
+        Usuario ya existe
+      </p>
+    </div>
+  </form>
+</div>
+
